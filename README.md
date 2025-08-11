@@ -1,6 +1,6 @@
 # 📂 Portfolio Helper Repository
 
-This repository serves as a **supporting data source** for my main portfolio project: [Portfolio Website](https://github.com/kishandev2509/portfolio). It contains project data in JSON format and an automated update mechanism to keep the portfolio's project section up-to-date without requiring manual redeployment of the portfolio site.
+This repository serves as a **supporting data source** for my main portfolio project: [Portfolio Website](https://github.com/smriti2505/portfolio). It contains project data in JSON format and an automated update mechanism to keep the portfolio's project section up-to-date without requiring manual redeployment of the portfolio site.
 
 ---
 
@@ -25,7 +25,7 @@ This repository serves as a **supporting data source** for my main portfolio pro
 
 ## ⚙️ How It Works
 
-1. **Data Source** – The `update_portfolio.py` script fetches all public, non-fork repositories for the GitHub user `kishandev2509` using the GitHub API.
+1. **Data Source** – The `update_portfolio.py` script fetches all public, non-fork repositories for the GitHub user `smriti2805` using the GitHub API.
 2. **JSON Generation** – The script writes repository details (name, URL, description, created date, last updated date) into `projects_data.json`.
 3. **Automation** – A GitHub Actions workflow (`update.yml`) runs hourly to:
 
@@ -41,7 +41,7 @@ This repository serves as a **supporting data source** for my main portfolio pro
 ### 1. Clone this Repository
 
 ```bash
-git clone https://github.com/kishandev2509/githubInfoJson.git
+git clone https://github.com/smriti2805/githubInfoJson.git
 cd githubInfoJson
 ```
 
@@ -65,9 +65,9 @@ This repository is licensed under the **MIT License**. You are free to use, modi
 
 ## 🙋‍♂️ Author
 
-**Kishan Dev (KD)**\
-📧 [kishandevprajapati4@gmail.com](mailto:kishandevprajapati4@gmail.com)\
-🔗 [LinkedIn](https://linkedin.com/in/kishandev2509)\
-💻 [GitHub](https://github.com/kishandev2509)
+**Smriti Kumari**\
+📧 [smriti2805@gmail.com](mailto:smriti82929@gmail.com)\
+🔗 [LinkedIn](https://linkedin.com/in/smriti2805)\
+💻 [GitHub](https://github.com/smriti2805)
 
 > "Automating updates for a portfolio that evolves as you do."
