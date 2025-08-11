@@ -2,7 +2,7 @@ name: Update Portfolio JSON every 10 mins
 
 on:
   schedule:
-    - cron: "*/10 * * * *" # every 10 minutes (UTC)
+    - cron: "30 5 * * *" # every 10 minutes (UTC)
   workflow_dispatch: # manual trigger
 
 jobs:
@@ -38,7 +38,7 @@ jobs:
             git push https://x-access-token:${GITHUB_TOKEN}@github.com/${{ github.repository }} HEAD:master
 
             # Purge jsDelivr cache for this file
-            curl -X GET "https://purge.jsdelivr.net/gh/kishandev2509/githubInfoJson@latest/projects_data.json"
+            curl -X GET "https://purge.jsdelivr.net/gh/smriti2805/githubInfoJson@latest/projects_data.json"
           else
             echo "No changes in JSON — skipping commit & purge."
           fi
