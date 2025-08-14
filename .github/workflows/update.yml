@@ -1,4 +1,4 @@
-name: Update Portfolio JSON every 10 mins
+name: Update Portfolio JSON every day
 
 on:
   schedule:
