@@ -35,7 +35,7 @@ jobs:
           if ! git diff --quiet; then
             git add projects_data.json
             git commit -m "🔄 Portfolio data updated"
-            git push https://x-access-token:${GITHUB_TOKEN}@github.com/${{ github.repository }} HEAD:master
+            git push https://x-access-token:${GITHUB_TOKEN}@github.com/${{ github.repository }} HEAD:main
 
             # Purge jsDelivr cache for this file
             curl -X GET "https://purge.jsdelivr.net/gh/smriti2805/githubInfoJson@latest/projects_data.json"
