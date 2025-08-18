@@ -1,10 +1,17 @@
 import json
 import re
 from datetime import datetime
+from zoneinfo import ZoneInfo
 
 import requests
 
 
+def convert_utc_to_ist(utc_time_str: str) -> str:
+    utc_time = datetime.strptime(utc_time_str, "%Y-%m-%dT%H:%M:%SZ") # Parse the UTC datetime string
+    utc_time = utc_time.replace(tzinfo=ZoneInfo("UTC")) # Convert to UTC (just to ensure it's aware)
+    ist_time = utc_time.astimezone(ZoneInfo("Asia/Kolkata")) # Convert to IST (Asia/Kolkata)
+    return ist_time.strftime("%Y-%m-%d %H:%M") # Return the formatted time in the desired format
+    
 def get_projects(username: str):
     url = f"https://api.github.com/users/{username}/repos"
 
@@ -24,8 +31,9 @@ def get_projects(username: str):
             project["html_url"] = repo["html_url"]
             project["description"] = repo["description"]
             project["user"] = repo["owner"]["login"]
-            project["created_at"] = datetime.strptime(repo["created_at"], "%Y-%m-%dT%H:%M:%SZ").strftime("%Y-%m-%d %H:%M")
-            project["updated_at"] = datetime.strptime(repo["updated_at"], "%Y-%m-%dT%H:%M:%SZ").strftime("%Y-%m-%d %H:%M")
+            project["created_at"] = convert_utc_to_ist(repo["created_at"])
+            project["updated_at"] = convert_utc_to_ist(repo["updated_at"])
+            project["homepage"] = repo["homepage"]
             projects_data.append(project)
 
         with open("projects_data.json", "w", encoding="utf-8") as f:
